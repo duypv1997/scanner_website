@@ -1,0 +1,1 @@
+from .wp_scan import wpscan

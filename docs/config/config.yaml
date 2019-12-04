@@ -1,0 +1,86 @@
+---
+swagger: "2.0"
+info:
+  description: "This is Scanner's profile specification"
+  version: "1.0.0"
+  title: "Scanner"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+definitions:
+  Profile:
+    type: "object"
+    properties:
+      metadata:
+        $ref: "#/definitions/ProfileMetadata"
+      plugins:
+        $ref: "#/definitions/ProfilePluginsList"
+      networking:
+        $ref: "#/definitions/ProfileNetworkingConfig"
+      fuzzer:
+        $ref: "#/definitions/ProfileFuzzingConfig"
+      strategy:
+        $ref: "#/definitions/ProfileStrategyConfig"
+      resource:
+        $ref: "#/definitions/ProfileResourceControllerConfig"
+
+  ProfileMetadata:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+      description:
+        type: "string"
+
+  ProfilePluginsList:
+    type: "object"
+    properties:
+      detector:
+        type: "array"
+        items:
+          $ref: "#/definitions/ProfilePluginConfig"
+
+  ProfileNetworkingConfig:
+    type: "object"
+    properties:
+      http:
+        type: "array"
+        items:
+          $ref: "#/definitions/ProfileNetworkingHTTPConfig"
+
+  ProfilePluginConfig:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+      description:
+        type: "string"
+      options:
+        type: "object"
+
+  ProfileNetworkingHTTPConfig:
+    type: "object"
+    properties:
+      headers:
+        type: "object"
+      authentication:
+        type: "object"
+
+  ProfileFuzzingConfig:
+    type: "object"
+    properties:
+      headers:
+        type: "object"
+      authentication:
+        type: "object"
+
+  ProfileStrategyConfig:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+
+  ProfileResourceControllerConfig:
+    type: "object"

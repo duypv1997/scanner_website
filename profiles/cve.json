@@ -1,0 +1,49 @@
+{
+	"metadata": {
+		"name": "CVE",
+		"description": "Scan only known CVE vulnerabilities"
+	},
+	"plugins": {
+		"detector": [
+			{
+				"name": "werkzeug.werkzeug_debugger"
+			},
+			{
+				"name": "cryptography.heartbleed"
+			},
+			{
+				"name": "cryptography.poodle"
+			},
+			{
+				"name": "windows.ms15_034"
+			},
+			{
+				"name": "jetty.jetleak"
+			},
+			{
+				"name": "nginx.cve_2017_7529"
+			},
+			{
+				"name": "modx_revolution.cve_2018_1000207"
+			}
+
+		]
+	},
+	"networking": {
+		"http": {
+			"headers": {
+				"User-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.117 Safari/537.36"
+			},
+			"authentication": {
+				"type": "basic",
+				"username": "test",
+				"password": "test"
+			}
+		}
+	},
+	"fuzzer": {
+		"path": false
+	},
+	"strategy": {},
+	"resource": {}
+}
